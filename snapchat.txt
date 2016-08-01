@@ -1,0 +1,6 @@
+Requirements
+- Login for users
+- become friends with users you specify
+- take a picture
+- send picture to a user
+- when the user opens a pciture, they can view it for some time before it goes away
