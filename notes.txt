@@ -1,6 +1,12 @@
-Requirements
+Requirements for snapchat
 - Login for users
 - become friends with users you specify
 - take a picture
 - send picture to a user
 - when the user opens a pciture, they can view it for some time before it goes away
+
+
+
+For trip calculator
+https://www.kittysplit.com/en/new
+http://www.wired.com/2014/03/apps-for-splitting-expenses/
