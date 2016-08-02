@@ -1,44 +1,15 @@
 <!DOCTYPE html>
 <html>
-<!-- TODO List -->
 
-<!-- 
 
-Implement cool data structures 
-
-Make each purchase to be an object so all the information is grouped together 
-
-!!!!  remove html tags from input
-	used function isHTML()
-
-!!!!  remove white space from input
-	ran regex in function toName
-
-!!!!  Strip $ and , from money input
-	set input type to "number"
-
-add option to delete users
-	!!!! delete from list of people
-	delete from header of table
-	delete purchase if purchaser
-	remove person from debtTable
-
-!!!!  auto capitalize names and types of purchase
-	completed in toName
-
-Hit enter to enter into input boxes
-
-!!!!  numbers that are too large or too small
-	added conditions in addPurchase section
-
-debtTable[c][purchaser[z]] += owed;	on this line, else might not be necessary?
-
-get better naming conventions
-
-!!!! if a person doesn't owe anyone anything, they aren't shown
-	based around var inner in loops to print in calculate
-
--->
+	<!-- ******************************************** -->
+	<!-- 			   TODO list 					  -->
+	<!-- 											  -->
+	<!--   	-  Implement cool data structures 		  -->
+	<!--	   -  Add Delete Functionality            -->
+	<!--	   -  Better naming conventions           -->
+	<!--										      -->
+	<!-- ******************************************** --> 
 
 <head>
 	<meta charset="utf-8">
@@ -48,15 +19,27 @@ get better naming conventions
 	<meta name="description" content="">
 	<meta name="author" content="">
 
+	<!-- Link for bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+
+
+	<!-- Links for fa fa buttons -->
+	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
 	<style>
 		#myList {
 			padding-top: 25px;
 			padding-bottom: 25px;
 		}
-
 		table {
 			table-layout: fixed;
+		}
+		#purchaseInput div{
+			padding-bottom: 10px;
 		}
 	</style>
 
@@ -64,6 +47,11 @@ get better naming conventions
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 </head>
 <body>
+
+	<!-- ******************************************** -->
+	<!-- 			   Navigation Bar 			      -->
+	<!-- ******************************************** --> 	 
+
 	<nav class="navbar navbar-default navbar-static-top">
 		<div class="container">
 			<div class="navbar-header">
@@ -80,63 +68,85 @@ get better naming conventions
 					<li class="active"><a href="#">Home</a></li>
 					<li><a href="#about">About</a></li>
 					<li><a href="#contact">Contact</a></li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Action</a></li>
-							<li><a href="#">Another action</a></li>
-							<li><a href="#">Something else here</a></li>
-							<li role="separator" class="divider"></li>
-							<li class="dropdown-header">Nav header</li>
-							<li><a href="#">Separated link</a></li>
-							<li><a href="#">One more separated link</a></li>
-						</ul>
 					</li>
 				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="../navbar/">Default</a></li>
-					<li class="active"><a href="./">Static top <span class="sr-only">(current)</span></a></li>
-					<li><a href="../navbar-fixed-top/">Fixed top</a></li>
-				</ul>
-			</div><!--/.nav-collapse -->
+			</div>
 		</div>
 	</nav>
 
 	<div class="container">
 
-		<!-- List with IDs so they can be referenced in JS -->
-
+		
+		<!-- ******************************************** -->
+		<!-- 			  Trip Participants 			  -->
+		<!-- ******************************************** --> 
 		<ul id="myList" class="list-group">
-			<!-- <li class="list-group-item">Sample Item 1</li> -->
 			<li class="list-group-item" style="text-align: center; text-decoration: underline; font-weight: bold;">Trip Participants</li>
 		</ul>
 
 
+		<!-- ******************************************** -->
+		<!-- 			   Add a Person			      	  -->
+		<!-- ******************************************** --> 
+		<!-- <form class="form-inline">
+			<div class="form-group">
+				<input type="text" class="form-control" id="myText" placeholder="Jane Doe">
+			</div>
+			<button id="addItemButton" class="btn btn-primary">Add Person</button>
+		</form> -->
+
 		<input id="myText">
-		<button id="addItemButton">Add Person</button>
-
+		<button class="btn btn-primary" id="addItemButton">Add Person</button>
 		<hr>
 
-		<!-- Drop down menu for selecting purchaser -->
-		<div>
-			<select id="mySelect">
-				<option>Select Purchaser</option>
-			</select>
-		</div>
+		<div id="purchaseInput">
+			<!-- ******************************************** -->
+			<!-- 			   Select a Purchaser			  -->
+			<!-- ******************************************** --> 
+			<div class="">
+				<select class="form-control" id="mySelect" style="width: 300px;">
+					<option>Select Purchaser</option>
+				</select>
+			</div>
 
-		<!-- Input boxes for type and amount of purchase -->
-		<div>
-			Type of purchase: <input id="myType">
-			<br>
-			Purchase amount: <input id="myAmt" type="number">
-			<br>
-		</div>
+			<!-- ******************************************** -->
+			<!-- 			Type and Amount Fields			  -->
+			<!-- ******************************************** --> 
+			<div class="row">
+				<label class="col-sm-2 col-form-label">Type of purchase:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="myType" placeholder="What did you buy?" style="width: 300px;">
+				</div>
+		    </div>
+		    
+			<div class="row">
+				<label class="col-sm-2 col-form-label">Purchase amount:</label>
+				<div class="col-sm-10"  >
+					<div class="input-group" style="width: 300px;">
+						<div class="input-group-addon">$</div>
+						<input type="text" class="form-control" id="myAmt" placeholder="Amount">
+						<!-- <div class="input-group-addon">.00</div> -->
+					</div>
+				</div>
+			</div>
+	    </div>
 
-		<!-- Add purchase button -->
-		<button id="addPurchaseButton">Add Purchase</button>
-		
+		<!-- <div>
+			Type of purchase: <input class="form-control" id="myType" style="width: 50%;">
+			<br>
+			Purchase amount: <input class="form-control" id="myAmt" type="number" style="width: 50%;">
+			<br>
+		</div> -->
+
+		<!-- ******************************************** -->
+		<!-- 			 Add A Purchase Button			  -->
+		<!-- ******************************************** --> 
+		<button class="btn btn-primary" id="addPurchaseButton">Add Purchase</button>
 		<hr>
 
+		<!-- ******************************************** -->
+		<!-- 			   Purhcases Table 			      -->
+		<!-- ******************************************** --> 
 		<table class="table">
 			<thead>
 				<tr id="myHeader">
@@ -147,18 +157,17 @@ get better naming conventions
 				</tr>
 			</thead>
 			<tbody id="myTBody">
-
 			</tbody>
 		</table>
 
-		<!-- Calculate button -->
-		<button id="calculate">Calculate</button>
-
+		<!-- ******************************************** -->
+		<!-- 			   Calculate Button			      -->
+		<!-- ******************************************** --> 
+		<button class="btn btn-primary" id="calculate">Calculate</button>
 		<hr>
 
-		<div id="output" class="row">
+		<div id="output"></div>
 
-		</div>
 
 		<script type="text/javascript">
 			var people= [];
@@ -169,26 +178,29 @@ get better naming conventions
 			var numPurch = 0;
 			var isDup = false;
 
-			// capitalizes first letter of each word
-			// eliminates extra white space
+			// ******************************************************** //
+			//          		JS Function to fix Name    				//
+			// 	    		- Eliminates white space					//
+			//				- Capiltalizes name							//
+			// ******************************************************** //
 			function toName(s) {
 				s = s.replace( /[\s\n\r]+/g, ' ' );
 				var words = s.split(" ");
 				//console.log(words);
 				var final = "";
 				for (var i = 0; i < words.length; i++) {
-
 					final += words[i].charAt(0).toUpperCase() 
 					if(words[i].length > 1)
 						final += words[i].substring(1, words[i].length).toLowerCase();
 					final += " ";
 				}
-
 				return final;
-				
 			}
 
-			// returns true if string contains html tags
+			// ******************************************************** //
+			//            JS Function to determine if HTML 				//
+			// 	    - Returns true if string contains html tags			//
+			// ******************************************************** //
 			function isHTML(str) {
 				var a = document.createElement('div');
 				a.innerHTML = str;
@@ -198,18 +210,12 @@ get better naming conventions
 				return false;
 			}
 
-			// delete instances of this user
-			function rem(id) {
-				// removes person from the list of people
-				var elem = document.getElementById('person' + id);
-				elem.parentNode.removeChild(elem);
-			}
-
-
-			// When the element with id="AddItemButton" is clicked
-			// Add person
+			// ******************************************************** //
+			//            JQuery Function for Add Item Button 			//
+			// 	    - When element with id="AddItemButton" clicked,		//
+			//	 						add person 						//
+			// ******************************************************** //
 			$('#addItemButton').click(function() {
-
 				// Remove any html or white space on input, capitalize the words
 				var name = $('#myText').val().trim();
 				if(isHTML(name)) {
@@ -217,7 +223,6 @@ get better naming conventions
 				}
 				name = toName(name).trim();
 				
-
 				// make sure there is text in the name field
 				if(document.getElementById("myText").value == 0) {
 					alert("Please enter a name");
@@ -232,16 +237,11 @@ get better naming conventions
 						}
 					}
 					if(!isDup) {
-
 						// Append the new person to the element with id="myList"
 						$('#myList').append('<li class="list-group-item" id="person' + numPeople + '">' 
-							+ (numPeople + 1) + ') ' + name + 
-							'<button id="del delete-' + numPeople + '" onclick="rem(' + numPeople + ')">Delete</button></li>');
-
+							+ (numPeople + 1) + ') ' + name + "  ");
 						$('#myHeader').append('<th>' + name + '</th>');
-
 						$('#mySelect').append('<option value="' + numPeople + '">' + name + '</option>');
-
 						// if purchases exist but a new person is added, add this person to the table
 						if(numPurch > 0) {
 							console.log("purchases exist");
@@ -250,46 +250,40 @@ get better naming conventions
 								$('#purchase' + i).append('<td><input type="checkbox" id="check' + i + '-' + numPeople + '"></td>');
 							}
 						}
-
 						// add person to list of people
 						people.push(name);
 						console.log(people);
-
 						// add a row for this person to debtTable
 						debtTable[numPeople] = [];
-
 						numPeople = numPeople + 1;
-
 						// reset input box
 						document.getElementById("myText").value = "";
 					}
 				}
-
 				isDup = false;
 			});
 
 
-			// When purchase button clicked add information to the table
+			// ******************************************************** //
+			//         JQuery Function for Add Purchase Button 			//
+			// 	   - When purchase button clicked add information		//
+			//						 to the table						//
+			// ******************************************************** //
 			$('#addPurchaseButton').click(function() {
-
 				var amount = $('#myAmt').val();
-
 				// remove excess HTML or blank space, then capitalize
 				var type = $('#myType').val().trim();
 				if(isHTML(type)) {
 					type = $(type)[0].textContent;
 				}
 				type = toName(type).trim();
-
 				// name of the purchaser
 				var selectedPurchaser = document.getElementById("mySelect");
 				var strUser = selectedPurchaser.options[selectedPurchaser.selectedIndex].text;
-
 				var row = '<tr id="purchase' + numPurch + '"><td>' + (numPurch + 1) + '</td>';
 				row = row + '<td>' + type + '</td>';
 				row = row + '<td>' + strUser + '</td>';
 				row = row + '<td>' + '$' + parseFloat(amount).toFixed(2) + '</td>';
-
 				// check that entries are valid
 				if(document.getElementById("myType").value == 0) {
 					alert("Please enter a purchase type");
@@ -307,7 +301,6 @@ get better naming conventions
 					alert("We don't accept negative numbers");
 				}
 				else { // entries are valid
-
 					// add checkboxes for every person for this purchase
 					for(var n = 0; n < numPeople; n++) {
 						// if the purchaser and person are same, check the box
@@ -320,18 +313,28 @@ get better naming conventions
 						}
 					}
 					row = row + '</tr>';
-
 					$('#myTBody').append(row);
 					purchases[numPurch] = amount;
 					numPurch = numPurch + 1;
 				}
-
 				// if a new purchase is added, the calculated information needs to be changed
 				document.getElementById("output").innerHTML = "";
-
 			});
 
+			// ******************************************************** //
+			//            JQuery Function to enable "enter" 			//
+			// 	    - When enter hit, "add person" button clicked		//
+			// ******************************************************** //
+			$("#myText").keyup(function(event){
+    			if(event.keyCode == 13){
+        			$("#addItemButton").click();
+    			}
+			});
 
+			// ******************************************************** //
+			//            JQuery Function for calculations			    //
+			// 	   	 - Calculates totals for each person				//
+			// ******************************************************** //
 			// Calculate totals for each person when Calculate button is clicked
 			$('#calculate').click(function() {
 				// initialize all values in debtTable to 0
@@ -341,13 +344,11 @@ get better naming conventions
 						debtTable[i][j] = 0;
 					}
 				}
-
 				// iterate through each purchase
 				for (var z = 0; z < numPurch; z++) {
 					
 					// get the amount of the purchase
 					var amount = purchases[z];
-
 					// find out how many people are checked
 					var countChecked = 0;
 					for(var checked = 0; checked < numPeople; checked++) {
@@ -356,14 +357,11 @@ get better naming conventions
 							countChecked++;
 						}
 					}
-
 					// calculate how much the number of people owe to the pruchaser
 					var owed = amount / countChecked;
-
 					// update values in debtTable
 					for(var c = 0; c < numPeople; c++) {
 						var x = document.getElementById("check" + z + "-" + c);
-
 						// if the box is checked, that person owes money
 						if(x.checked) {
 							if(debtTable[c][purchaser[z]] >= 0) {
@@ -371,7 +369,6 @@ get better naming conventions
 							} else {
 								debtTable[c][purchaser[z]] = owed;
 							}
-
 							console.log(purchaser[z] + " - " + c + " = " + owed);
 						} else {
 							// debtTable = 0
@@ -379,15 +376,16 @@ get better naming conventions
 					}
 				}
 
-				// reset div where output for each person is put
+				// ******************************************************** //
+				//           			 Display Money owed					//
+				// 	    - Generates HTML to display money owed				//
+				// ******************************************************** //
 				document.getElementById("output").innerHTML = "";
-
 				// iterate through each person that owes money
 				for(var row = 0; row < numPeople; row++) {
 					console.log(debtTable[row]);
 					var out = '<div class="col-lg-4"><h3>' + people[row] + ' owes:</h3><ul>';
 					var inner = '';
-
 					// iterate through each person they owe money to
 					// set cells to 0 if the information is redundant
 					for(var col = 0; col < numPeople; col++) {
@@ -409,15 +407,20 @@ get better naming conventions
 						}
 					}
 
-					// iterate through each person they owe money to
-					// add the <li> for each person owed money
+					// ******************************************************** //
+					//            Display people who you owe money to    		//
+					// 	    - Iterates though each person they owe mone to      //
+					//		- add the <li> for each person owed money			//
+					// ******************************************************** //
 					for(var c = 0; c < numPeople; c++) {
 						if(row != c && debtTable[row][c] != 0) {
 							inner += '<li>' + people[c] + ' $' + parseFloat(debtTable[row][c]).toFixed(2) + '</li>';
 						}
 					}
 
-					// if no money is owed to anyone, don't print the person
+					// ******************************************************** //
+					//            Hide person if no money owed   				//
+					// ******************************************************** //
 					if (inner != '') {
 						out += inner + '</ul></div>';
 					} else {
@@ -425,18 +428,11 @@ get better naming conventions
 					}
 					$('#output').append(out);
 				}
-
 			});
-
 		</script>
 		
-
-
-
 	</div>
 
-
 </body>
-
 
 </html>
