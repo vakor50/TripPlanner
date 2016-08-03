@@ -13,7 +13,6 @@
 	<!--       -  Group spending total, each person's share, how much each person spent, number of expenses  -->
 	<!--       -  Is entry an expense, income, etc    -->
 	<!--       -  vir paid for something. What for? __ How much?__ Split between... When? (optional)     -->
-	<!--       -  Remove console.log() calls	  -->
 	<!--						  -->
 	<!-- ******************************************** --> 
 
@@ -25,23 +24,46 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	
-
 	<!-- Link for bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 
-	<!-- Links for fa fa buttons -->
-	<!-- <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
-	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"> -->
 
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<!-- Links for fa fa buttons -->
+	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+	<style>
+		.parallax { 
+		    /* The image used */
+		    background-image: url("a.jpg");
+
+		    /* Set a specific height */
+		    height: 100%; 
+
+		    /* Create the parallax scrolling effect */
+		    background-attachment: fixed;
+		    background-position: center;
+		    background-repeat: no-repeat;
+		    background-size: cover;
+		 }
+		 table, th, td {
+   			border: 1px solid black;
+   			text-align: center;
+		}
+		#myList {
+			padding-top: 25px;
+			padding-bottom: 25px;
+		}
+		#purchaseInput div{
+			padding-bottom: 10px;
+		}
+	</style>
 
 	<!-- Include jQuery -->
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-
-	
 </head>
 <body class="parallax">
 
@@ -75,42 +97,42 @@
 
 		<div id="header">
 
-		<h2 id="title" > Cost Splitter </h2>
+		<h2 style="text-align: center; padding-bottom: 25px; margin-top: 90px; color:white;"> Cost Splitter </h2>
 
 		</div>
 		
-		<div  id="section1">
+		<div style="background-color: white; padding: 20px; padding-top: 0px;" id="section1">
 
 		<!-- ******************************************** -->
 		<!-- 			  Trip Participants 			  -->
 		<!-- ******************************************** --> 
 		<ul id="myList" class="list-group">
-			<li class="list-group-item" >Trip Participants</li>
+			<li class="list-group-item" style="text-align: center; text-decoration: underline; font-weight: bold; font-size: 15px;">Trip Participants</li>
 		</ul>
 
 
 		<!-- ******************************************** -->
 		<!-- 			   Add a Person			      	  -->
 		<!-- ******************************************** --> 
-		<div  id="addPerson" class="form-inline">
-      		<input class="form-control" type="text" id="myText" placeholder="Jane Doe">
-   			<button id="addItemButton" class="btn btn-primary">Add Person</button>
-     	</div>
+		<div style="padding-bottom: 25px;" class="form-inline">
+      		<input class="form-control" type="text" id="myText" placeholder="Jane Doe">
+   			<button id="addItemButton" class="btn btn-primary">Add Person</button>
+     	</div>
 
 		</div>
 
 		<hr>
 
-		<div  id="section2">
+		<div style="background-color: white; padding: 10px; padding-left: 20px;" id="section2">
 
 		<div id="purchaseInput">
 			<!-- ******************************************** -->
 			<!-- 			   Select a Purchaser			  -->
 			<!-- ******************************************** --> 
-			<div id="addPurchaser"  class="row">
+			<div style="padding-top:25px;" class="row">
 				<label class="col-sm-2 col-form-label">Select Purchaser:</label>
 				<div class="col-sm-10">
-					<select class="form-control col-sm-2" id="mySelect" >
+					<select class="form-control col-sm-2" id="mySelect" style="width: 300px; color: grey">
 						<option>Who purchased it?</option>
 					</select>
 				</div>
@@ -122,14 +144,14 @@
 			<div class="row">
 				<label class="col-sm-2 col-form-label">Type of purchase:</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="myType" placeholder="What did you buy?" >
+					<input type="text" class="form-control" id="myType" placeholder="What did you buy?" style="width: 300px;">
 				</div>
 		    </div>
 		    
 			<div class="row">
 				<label class="col-sm-2 col-form-label">Purchase amount:</label>
 				<div class="col-sm-10"  >
-					<div class="input-group" id="numberBox" >
+					<div class="input-group" style="width: 300px;">
 						<div class="input-group-addon">$</div>
 						<input type="number" class="form-control" id="myAmt" placeholder="Amount">
 						<!-- <div class="input-group-addon">.00</div> -->
@@ -141,19 +163,19 @@
 		<!-- ******************************************** -->
 		<!-- 			 Add A Purchase Button			  -->
 		<!-- ******************************************** --> 
-		<button  class="btn btn-primary" id="addPurchaseButton">Add Purchase</button>
+		<button style="margin-bottom: 25px;" class="btn btn-primary" id="addPurchaseButton">Add Purchase</button>
 
 		</div>
 
 		<hr>
 
-		<div  id="section3">
+		<div style="background-color: white; padding: 10px; padding-left: 20px;" id="section3">
 
 		<!-- ******************************************** -->
 		<!-- 			   Purhcases Table 			      -->
 		<!-- ******************************************** -->
-		<div id="purchaseTable" > 
-			<table  class="table table-responsive">
+		<div style="overflow-x:auto;"> 
+			<table style="margin-top: 50px; text-align: center;" class="table table-responsive">
 				<thead>
 					<tr id="myHeader">
 						<th>#</th>
@@ -179,8 +201,280 @@
 		<div id="output"></div>
 
 
-		<!-- Include code to handle buttons -->
-		<script type="text/javascript" src="js/buttons.js"></script>
+		<script type="text/javascript">
+			var people= [];
+			var purchases = [];
+			var purchaser = [];
+			var debtTable = [];
+			var numPeople = 0;
+			var numPurch = 0;
+			var isDup = false;
+
+			// ******************************************************** //
+			//          		JS Function to fix Name    				//
+			// 	    		- Eliminates white space					//
+			//				- Capiltalizes name							//
+			// ******************************************************** //
+			function toName(s) {
+				s = s.replace( /[\s\n\r]+/g, ' ' );
+				var words = s.split(" ");
+				//console.log(words);
+				var final = "";
+				for (var i = 0; i < words.length; i++) {
+					final += words[i].charAt(0).toUpperCase() 
+					if(words[i].length > 1)
+						final += words[i].substring(1, words[i].length).toLowerCase();
+					final += " ";
+				}
+				return final;
+			}
+
+			// ******************************************************** //
+			//          		JS Function change color of row			//
+			// 	    		- Changes row color when clicked			//
+			// ******************************************************** //
+			function changeColor(o){
+       			 o.style.backgroundColor=(o.style.backgroundColor=='cyan')?('transparent'):('cyan');
+    		}
+
+			// var doc = new jsPDF('p', 'pt');
+			// var elem = document.getElementById("#table");
+			// var res = doc.autoTableHtmlToJson(elem);
+			// doc.autoTable(res.columns, res.data);
+			// doc.save("table.pdf");
+
+			// ******************************************************** //
+			//            JS Function to determine if HTML 				//
+			// 	    - Returns true if string contains html tags			//
+			// ******************************************************** //
+			function isHTML(str) {
+				var a = document.createElement('div');
+				a.innerHTML = str;
+				for (var c = a.childNodes, i = c.length; i--; ) {
+					if (c[i].nodeType == 1) return true; 
+				}
+				return false;
+			}
+
+			// ******************************************************** //
+			//            JQuery Function for Add Item Button 			//
+			// 	    - When element with id="AddItemButton" clicked,		//
+			//	 						add person 						//
+			// ******************************************************** //
+			$('#addItemButton').click(function() {
+				// Remove any html or white space on input, capitalize the words
+				var name = $('#myText').val().trim();
+				if(isHTML(name)) {
+					name = $(name)[0].textContent;
+				}
+				name = toName(name).trim();
+				
+				// make sure there is text in the name field
+				if(document.getElementById("myText").value == 0) {
+					alert("Please enter a name");
+				}
+				else {
+					for(var x = 0; x < numPeople; x++)
+					{
+						// if (people[x] == $('#myText').val()) {
+						if (people[x] == name) {
+							alert("Duplicate name!");
+							isDup = true;
+						}
+					}
+					if(!isDup) {
+						// Append the new person to the element with id="myList"
+						$('#myList').append('<li class="list-group-item" id="person' + numPeople + '">' 
+							+ (numPeople + 1) + ') ' + name + "  ");
+						$('#myHeader').append('<th>' + name + '</th>');
+						$('#mySelect').append('<option value="' + numPeople + '">' + name + '</option>');
+						// if purchases exist but a new person is added, add this person to the table
+						if(numPurch > 0) {
+							console.log("purchases exist");
+							// iterate through existing purchases
+							for(var i = 0; i < numPurch; i++) {
+								$('#purchase' + i).append('<td><input type="checkbox" id="check' + i + '-' + numPeople + '"></td>');
+							}
+						}
+						// add person to list of people
+						people.push(name);
+						console.log(people);
+						// add a row for this person to debtTable
+						debtTable[numPeople] = [];
+						numPeople = numPeople + 1;
+						// reset input box
+						document.getElementById("myText").value = "";
+					}
+				}
+				isDup = false;
+			});
+
+			// ******************************************************** //
+			//         JQuery Function for Add Purchase Button 			//
+			// 	   - When purchase button clicked add information		//
+			//						 to the table						//
+			// ******************************************************** //
+			$('#addPurchaseButton').click(function() {
+				var amount = $('#myAmt').val();
+				// remove excess HTML or blank space, then capitalize
+				var type = $('#myType').val().trim();
+				if(isHTML(type)) {
+					type = $(type)[0].textContent;
+				}
+				type = toName(type).trim();
+				// name of the purchaser
+				var selectedPurchaser = document.getElementById("mySelect");
+				var strUser = selectedPurchaser.options[selectedPurchaser.selectedIndex].text;
+				var row = '<tr  onclick="changeColor(this)" id="purchase' + numPurch + '"><td>' + (numPurch + 1) + '</td>';
+				row = row + '<td>' + type + '</td>';
+				row = row + '<td>' + strUser + '</td>';
+				row = row + '<td>' + '$' + parseFloat(amount).toFixed(2) + '</td>';
+				// check that entries are valid
+				if(document.getElementById("myType").value == 0) {
+					alert("Please enter a purchase type");
+				}
+				else if (document.getElementById("myAmt").value == 0) {
+					alert("Please enter a purchase amount");
+				}
+				else if (document.getElementById("mySelect").value == "Select Purchaser") {
+					alert("Please select a purchaser");
+				}
+				else if (amount > 999999999) {
+					alert("Number is too large");
+				}
+				else if (amount < 0) {
+					alert("We don't accept negative numbers");
+				}
+				else { // entries are valid
+					// add checkboxes for every person for this purchase
+					for(var n = 0; n < numPeople; n++) {
+						// if the purchaser and person are same, check the box
+						if(strUser == people[n].trim()) {
+							purchaser[numPurch] = n;
+							row = row + '<td><input type="checkbox" id="check' + numPurch + '-' + n + '" checked></td>';
+						}
+						else {
+							row = row + '<td><input type="checkbox" id="check' + numPurch + '-' + n + '"></td>';
+						}
+					}
+					row = row + '</tr>';
+					$('#myTBody').append(row);
+					purchases[numPurch] = amount;
+					numPurch = numPurch + 1;
+				}
+				// if a new purchase is added, the calculated information needs to be changed
+				document.getElementById("output").innerHTML = "";
+			});
+
+			// ******************************************************** //
+			//            JQuery Function to enable "enter" 			//
+			// 	    - When enter hit, "add person" button clicked		//
+			// ******************************************************** //
+			$("#myText").keyup(function(event){
+    			if(event.keyCode == 13){
+        			$("#addItemButton").click();
+    			}
+			});
+
+			// ******************************************************** //
+			//            JQuery Function for calculations			    //
+			// 	   	 - Calculates totals for each person				//
+			// ******************************************************** //
+			// Calculate totals for each person when Calculate button is clicked
+			$('#calculate').click(function() {
+				// initialize all values in debtTable to 0
+				// previous calculations won't carry over
+				for(var i = 0; i < numPeople; i++) {
+					for(var j = 0; j < numPeople; j++) {
+						debtTable[i][j] = 0;
+					}
+				}
+				// iterate through each purchase
+				for (var z = 0; z < numPurch; z++) {
+					
+					// get the amount of the purchase
+					var amount = purchases[z];
+					// find out how many people are checked
+					var countChecked = 0;
+					for(var checked = 0; checked < numPeople; checked++) {
+						var x = document.getElementById("check" + z + "-" + checked);
+						if(x.checked) {
+							countChecked++;
+						}
+					}
+					// calculate how much the number of people owe to the pruchaser
+					var owed = amount / countChecked;
+					// update values in debtTable
+					for(var c = 0; c < numPeople; c++) {
+						var x = document.getElementById("check" + z + "-" + c);
+						// if the box is checked, that person owes money
+						if(x.checked) {
+							if(debtTable[c][purchaser[z]] >= 0) {
+								debtTable[c][purchaser[z]] += owed;
+							} else {
+								debtTable[c][purchaser[z]] = owed;
+							}
+							console.log(purchaser[z] + " - " + c + " = " + owed);
+						} else {
+							// debtTable = 0
+						}
+					}
+				}
+
+				// ******************************************************** //
+				//           			 Display Money owed					//
+				// 	    - Generates HTML to display money owed				//
+				// ******************************************************** //
+				document.getElementById("output").innerHTML = "";
+				// iterate through each person that owes money
+				for(var row = 0; row < numPeople; row++) {
+					console.log(debtTable[row]);
+					var out = '<div class="col-lg-4"><h3>' + people[row] + ' owes:</h3><ul>';
+					var inner = '';
+					// iterate through each person they owe money to
+					// set cells to 0 if the information is redundant
+					for(var col = 0; col < numPeople; col++) {
+						if(row != col && debtTable != 0) {
+							// compare (row,col) to (col,row) 
+							// because the purchaser and ower are swapped, the difference shown
+							if(debtTable[row][col] > 0) {
+								if (debtTable[row][col] > debtTable[col][row]) {
+									debtTable[row][col] -= debtTable[col][row];
+									debtTable[col][row] = 0;
+								} else if (debtTable[row][col] < debtTable[col][row]) {
+									debtTable[col][row] -= debtTable[row][col];
+									debtTable[row][col] = 0;
+								} else if (debtTable[row][col] == debtTable[col][row]) {
+									debtTable[col][row] = 0;
+									debtTable[row][col] = 0;
+								}
+							}
+						}
+					}
+
+					// ******************************************************** //
+					//            Display people who you owe money to    		//
+					// 	    - Iterates though each person they owe mone to      //
+					//		- add the <li> for each person owed money			//
+					// ******************************************************** //
+					for(var c = 0; c < numPeople; c++) {
+						if(row != c && debtTable[row][c] != 0) {
+							inner += '<li>' + people[c] + ' $' + parseFloat(debtTable[row][c]).toFixed(2) + '</li>';
+						}
+					}
+
+					// ******************************************************** //
+					//            Hide person if no money owed   				//
+					// ******************************************************** //
+					if (inner != '') {
+						out += inner + '</ul></div>';
+					} else {
+						out = '';
+					}
+					$('#output').append(out);
+				}
+			});
+		</script>
 		
 	</div>
 
