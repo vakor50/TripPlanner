@@ -74,7 +74,7 @@ $('#addItemButton').click(function() {
 				for(var i = 0; i < numPurch; i++) {
 					// '<div class="checkbox checkbox-primary"><input id="checkbox2" class="styled" type="checkbox" checked=""><label for="checkbox2"></label></div>'
 
-					$('#purchase' + i).append('<td><div class="checkbox checkbox-primary"><input type="checkbox" class="styled" id="check check' + i + '-' + numPeople + '"><label for="check"></label></div></td>');
+					$('#purchase' + i).append('<td><div class="checkbox checkbox-primary"><input type="checkbox" class="styled" id="check' + i + '-' + numPeople + '"><label for="c"></label></div></td>');
 				}
 			}
 			// add person to list of people
@@ -131,10 +131,10 @@ $('#addPurchaseButton').click(function() {
 			// if the purchaser and person are same, check the box
 			if(strUser == people[n].trim()) {
 				purchaser[numPurch] = n;
-				row = row + '<td><div class="checkbox checkbox-primary"><input type="checkbox" class="styled" id="check check' + numPurch + '-' + n + '" checked><label for="check"></label></div></td>';
+				row = row + '<td><div class="checkbox checkbox-primary"><input type="checkbox" class="styled" id="check' + numPurch + '-' + n + '" checked><label for="c"></label></div></td>';
 			}
 			else {
-				row = row + '<td><div class="checkbox checkbox-primary"><input type="checkbox" class="styled" id="check check' + numPurch + '-' + n + '"><label for="check"></label></div></td>';
+				row = row + '<td><div class="checkbox checkbox-primary"><input type="checkbox" class="styled" id="check' + numPurch + '-' + n + '"><label for="c"></label></div></td>';
 			}
 		}
 		row = row + '</tr>';
@@ -176,6 +176,7 @@ $('#calculate').click(function() {
 		var countChecked = 0;
 		for(var checked = 0; checked < numPeople; checked++) {
 			var x = document.getElementById("check" + z + "-" + checked);
+			console.log("check" + z + "-" + checked);
 			if(x.checked) {
 				countChecked++;
 			}
