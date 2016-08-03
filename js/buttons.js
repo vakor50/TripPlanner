@@ -72,7 +72,9 @@ $('#addItemButton').click(function() {
 				console.log("purchases exist");
 				// iterate through existing purchases
 				for(var i = 0; i < numPurch; i++) {
-					$('#purchase' + i).append('<td><input type="checkbox" id="check' + i + '-' + numPeople + '"></td>');
+					// '<div class="checkbox checkbox-primary"><input id="checkbox2" class="styled" type="checkbox" checked=""><label for="checkbox2"></label></div>'
+
+					$('#purchase' + i).append('<td><div class="checkbox checkbox-primary"><input type="checkbox" class="styled" id="check check' + i + '-' + numPeople + '"><label for="check"></label></div></td>');
 				}
 			}
 			// add person to list of people
@@ -129,10 +131,10 @@ $('#addPurchaseButton').click(function() {
 			// if the purchaser and person are same, check the box
 			if(strUser == people[n].trim()) {
 				purchaser[numPurch] = n;
-				row = row + '<td><input type="checkbox" id="check' + numPurch + '-' + n + '" checked></td>';
+				row = row + '<td><div class="checkbox checkbox-primary"><input type="checkbox" class="styled" id="check check' + numPurch + '-' + n + '" checked><label for="check"></label></div></td>';
 			}
 			else {
-				row = row + '<td><input type="checkbox" id="check' + numPurch + '-' + n + '"></td>';
+				row = row + '<td><div class="checkbox checkbox-primary"><input type="checkbox" class="styled" id="check check' + numPurch + '-' + n + '"><label for="check"></label></div></td>';
 			}
 		}
 		row = row + '</tr>';
@@ -204,7 +206,7 @@ $('#calculate').click(function() {
 	// iterate through each person that owes money
 	for(var row = 0; row < numPeople; row++) {
 		console.log(debtTable[row]);
-		var out = '<div class="col-lg-4"><h3>' + people[row] + ' owes:</h3><ul>';
+		var out = '<div class="col-xs-6"><h3>' + people[row] + ' owes:</h3><ul class="list-group">';
 		var inner = '';
 		// iterate through each person they owe money to
 		// set cells to 0 if the information is redundant
@@ -233,7 +235,7 @@ $('#calculate').click(function() {
 		// ******************************************************** //
 		for(var c = 0; c < numPeople; c++) {
 			if(row != c && debtTable[row][c] != 0) {
-				inner += '<li>' + people[c] + ' $' + parseFloat(debtTable[row][c]).toFixed(2) + '</li>';
+				inner += '<li id="out" class="list-group-item"><a href=>' + people[c] + ' $' + parseFloat(debtTable[row][c]).toFixed(2) + '</a></li>';
 			}
 		}
 		// ******************************************************** //
