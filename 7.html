@@ -31,6 +31,19 @@
 	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
 	<style>
+		.parallax { 
+		    /* The image used */
+		    background-image: url("a.jpg");
+
+		    /* Set a specific height */
+		    height: 100%; 
+
+		    /* Create the parallax scrolling effect */
+		    background-attachment: fixed;
+		    background-position: center;
+		    background-repeat: no-repeat;
+		    background-size: cover;
+		 }
 		#myList {
 			padding-top: 25px;
 			padding-bottom: 25px;
@@ -46,13 +59,13 @@
 	<!-- Include jQuery -->
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 </head>
-<body>
+<body class="parallax">
 
 	<!-- ******************************************** -->
 	<!-- 			   Navigation Bar 			      -->
 	<!-- ******************************************** --> 	 
 
-	<nav class="navbar navbar-default navbar-static-top">
+	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -65,8 +78,8 @@
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#about">About</a></li>
+					<li class="active"><a href="home.html">Home</a></li>
+					<li><a href="7.html">Cost Splitter</a></li>
 					<li><a href="#contact">Contact</a></li>
 					</li>
 				</ul>
@@ -76,8 +89,14 @@
 
 	<div class="container">
 
-		<h2 style="text-align: center; padding-bottom: 25px;"> Cost Splitter </h2>
+		<div id="header">
+
+		<h2 style="text-align: center; padding-bottom: 25px; margin-top: 90px; color:white;"> Cost Splitter </h2>
+
+		</div>
 		
+		<div style="background-color: white; padding: 20px; padding-top: 0px;" id="section1">
+
 		<!-- ******************************************** -->
 		<!-- 			  Trip Participants 			  -->
 		<!-- ******************************************** --> 
@@ -93,7 +112,12 @@
       		<input class="form-control" type="text" id="myText" placeholder="Jane Doe">
    			<button id="addItemButton" class="btn btn-primary">Add Person</button>
      	</div>
+
+		</div>
+
 		<hr>
+
+		<div style="background-color: white; padding: 10px; padding-left: 20px;" id="section2">
 
 		<div id="purchaseInput">
 			<!-- ******************************************** -->
@@ -130,18 +154,16 @@
 			</div>
 	    </div>
 
-		<!-- <div>
-			Type of purchase: <input class="form-control" id="myType" style="width: 50%;">
-			<br>
-			Purchase amount: <input class="form-control" id="myAmt" type="number" style="width: 50%;">
-			<br>
-		</div> -->
-
 		<!-- ******************************************** -->
 		<!-- 			 Add A Purchase Button			  -->
 		<!-- ******************************************** --> 
 		<button style="margin-bottom: 25px;" class="btn btn-primary" id="addPurchaseButton">Add Purchase</button>
+
+		</div>
+
 		<hr>
+
+		<div style="background-color: white; padding: 10px; padding-left: 20px;" id="section3">
 
 		<!-- ******************************************** -->
 		<!-- 			   Purhcases Table 			      -->
@@ -163,6 +185,9 @@
 		<!-- 			   Calculate Button			      -->
 		<!-- ******************************************** --> 
 		<button class="btn btn-primary" id="calculate">Calculate</button>
+
+		</div>
+
 		<hr>
 
 		<div id="output"></div>
