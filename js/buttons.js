@@ -237,7 +237,8 @@ $('#calculate').click(function() {
 		// ******************************************************** //
 		for(var c = 0; c < numPeople; c++) {
 			if(row != c && debtTable[row][c] != 0) {
-				inner += '<li id="out" class="list-group-item"><a href=>' + people[c] + ' $' + parseFloat(debtTable[row][c]).toFixed(2) + '</a></li>';
+				inner += '<li id="elem' + row + '-' + c + '" class="list-group-item" onClick="completed('+row+','+c+')">' + people[c] + ' $' + parseFloat(debtTable[row][c]).toFixed(2) + '</li>';
+				// inner += '<li id="out" class="list-group-item">' + people[c] + ' $' + parseFloat(debtTable[row][c]).toFixed(2) + '</li>';
 			}
 		}
 		// ******************************************************** //
@@ -251,3 +252,21 @@ $('#calculate').click(function() {
 		$('#output').append(out);
 	}
 });
+
+function completed(row, col) {
+	
+	var elem = $('#elem' + row + '-' + col + '');;
+	// var c = rgb(255, 255, 255);
+	console.log(elem.css("background-color"));
+	if (elem.css("background-color") == "lightgrey") {
+		console.log("goodbye");
+		elem.css("background-color", "white");
+	} else {
+		console.log("hello");
+		elem.css("background-color", "lightgrey");
+	}
+};
+
+// $('#out').click(function() {
+// 	$(this)
+// });
