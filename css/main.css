@@ -82,6 +82,8 @@ td{
 }
 #output div {
 	background-color: white;
+	opacity: 0.8;
+	padding: 20px;
 }
 input {
 	padding-left: 12px;
