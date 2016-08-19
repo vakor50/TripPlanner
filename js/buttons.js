@@ -207,7 +207,7 @@ $('#calculate').click(function() {
 	document.getElementById("output").innerHTML = "";
 	// iterate through each person that owes money
 	for(var row = 0; row < numPeople; row++) {
-		var out = '<div style="padding: 20px;" class="col-lg-6"><h3>' + people[row] + ' owes:</h3><ul class="list-group">';
+		var out = '<div style="padding: 20px;" class="col-lg-12"><h3>' + people[row] + ' owes:</h3><ul class="list-group">';
 		var inner = '';
 		// iterate through each person they owe money to
 		// set cells to 0 if the information is redundant
