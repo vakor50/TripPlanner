@@ -87,24 +87,20 @@
 		
 		<div  id="section1">
 
-		
-		
+			<!-- ******************************************** -->
+			<!-- 			  Trip Participants 			  -->
+			<!-- ******************************************** --> 
+			<ul id="myList" class="list-group">
+				<li class="list-group-item" >Trip Participants</li>
+			</ul>
 
-		<!-- ******************************************** -->
-		<!-- 			  Trip Participants 			  -->
-		<!-- ******************************************** --> 
-		<ul id="myList" class="list-group">
-			<li class="list-group-item" >Trip Participants</li>
-		</ul>
-
-
-		<!-- ******************************************** -->
-		<!-- 			   Add a Person			      	  -->
-		<!-- ******************************************** --> 
-		<div  id="addPerson" class="form-inline">
-      		<input class="form-control" type="text" id="myText" placeholder="Jane Doe">
-   			<button id="addItemButton" class="btn btn-primary">Add Person</button>
-     	</div>
+			<!-- ******************************************** -->
+			<!-- 			   Add a Person			      	  -->
+			<!-- ******************************************** --> 
+			<div  id="addPerson" class="form-inline">
+	      		<input class="form-control" type="text" id="myText" placeholder="Jane Doe">
+	   			<button id="addItemButton" class="btn btn-primary">Add Person</button>
+	     	</div>
 
 		</div>
 
@@ -112,45 +108,45 @@
 
 		<div  id="section2">
 
-		<div id="purchaseInput">
-			<!-- ******************************************** -->
-			<!-- 			   Select a Purchaser			  -->
-			<!-- ******************************************** --> 
-			<div id="addPurchaser"  class="row">
-				<label class="col-sm-2 col-form-label">Select Purchaser:</label>
-				<div class="col-sm-10">
-					<select class="form-control col-sm-2" id="mySelect" >
-						<option>Who purchased it?</option>
-					</select>
-				</div>
-			</div>
-
-			<!-- ******************************************** -->
-			<!-- 			Type and Amount Fields			  -->
-			<!-- ******************************************** --> 
-			<div class="row">
-				<label class="col-sm-2 col-form-label">Type of purchase:</label>
-				<div class="col-sm-10">
-					<input type="text" class="form-control" id="myType" placeholder="What did you buy?" >
-				</div>
-		    </div>
-		    
-			<div class="row">
-				<label class="col-sm-2 col-form-label">Purchase amount:</label>
-				<div class="col-sm-10"  >
-					<div class="input-group" id="numberBox" >
-						<div class="input-group-addon">$</div>
-						<input type="number" class="form-control" id="myAmt" placeholder="Amount">
-						<!-- <div class="input-group-addon">.00</div> -->
+			<div id="purchaseInput">
+				<!-- ******************************************** -->
+				<!-- 			   Select a Purchaser			  -->
+				<!-- ******************************************** --> 
+				<div id="addPurchaser"  class="row">
+					<label class="col-sm-2 col-form-label">Select Purchaser:</label>
+					<div class="col-sm-10">
+						<select class="form-control col-sm-2" id="mySelect" >
+							<option>Who purchased it?</option>
+						</select>
 					</div>
 				</div>
-			</div>
-	    </div>
 
-		<!-- ******************************************** -->
-		<!-- 			 Add A Purchase Button			  -->
-		<!-- ******************************************** --> 
-		<button  class="btn btn-primary" id="addPurchaseButton">Add Purchase</button>
+				<!-- ******************************************** -->
+				<!-- 			Type and Amount Fields			  -->
+				<!-- ******************************************** --> 
+				<div class="row">
+					<label class="col-sm-2 col-form-label">Type of purchase:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="myType" placeholder="What did you buy?" >
+					</div>
+			    </div>
+			    
+				<div class="row">
+					<label class="col-sm-2 col-form-label">Purchase amount:</label>
+					<div class="col-sm-10"  >
+						<div class="input-group" id="numberBox" >
+							<div class="input-group-addon">$</div>
+							<input type="number" class="form-control" id="myAmt" placeholder="Amount">
+							<!-- <div class="input-group-addon">.00</div> -->
+						</div>
+					</div>
+				</div>
+		    </div>
+
+			<!-- ******************************************** -->
+			<!-- 			 Add A Purchase Button			  -->
+			<!-- ******************************************** --> 
+			<button  class="btn btn-primary" id="addPurchaseButton">Add Purchase</button>
 
 		</div>
 
@@ -158,30 +154,30 @@
 
 		<div  id="section3">
 
-		<!-- ******************************************** -->
-		<!-- 			   Purhcases Table 			      -->
-		<!-- ******************************************** -->
-		<div id="purchaseTable" > 
-			<table id="projectSpreadsheet" class="table table-responsive">
-				<thead>
-					<tr id="myHeader">
-						<th>#</th>
-						<th>Item</th>
-						<th>Purchaser</th>
-						<th>Amount</th>
-					</tr>
-				</thead>
-				<tbody id="myTBody">
-				</tbody>
-			</table>
-		</div>
+			<!-- ******************************************** -->
+			<!-- 			   Purhcases Table 			      -->
+			<!-- ******************************************** -->
+			<div id="purchaseTable" > 
+				<table id="projectSpreadsheet" class="table table-responsive">
+					<thead>
+						<tr id="myHeader">
+							<th>#</th>
+							<th>Item</th>
+							<th>Purchaser</th>
+							<th>Amount</th>
+						</tr>
+					</thead>
+					<tbody id="myTBody">
+					</tbody>
+				</table>
+			</div>
 
-		<!-- ******************************************** -->
-		<!-- 			   Calculate Button			      -->
-		<!-- ******************************************** --> 
-		<button class="btn btn-primary" id="calculate">Calculate</button>
+			<!-- ******************************************** -->
+			<!-- 			   Calculate Button			      -->
+			<!-- ******************************************** --> 
+			<button class="btn btn-primary" id="calculate">Calculate</button>
 
-		<a href="#" id="xx" style=" text-decoration:none;color:#000;background-color:#ddd;border:1px solid #ccc;padding:8px; margin-left: 10px;">Export Purchases</a>
+			<a href="#" id="xx" style=" text-decoration:none;color:#000;background-color:#ddd;border:1px solid #ccc;padding:8px; margin-left: 10px;">Export Purchases</a>
 
 		</div>
 

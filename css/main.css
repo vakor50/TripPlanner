@@ -37,7 +37,7 @@ td{
 	padding: 20px; 
 	padding-top: 0px;
 	border-radius: 10px;
-	opacity: 0.8;
+	opacity: 0.9;
 }
 #myList li:first-child {
 	text-align: center; 
@@ -52,7 +52,7 @@ td{
 	padding: 10px; 
 	padding-left: 20px;
 	border-radius: 10px;
-	opacity: 0.8;
+	opacity: 0.9;
 }
 #addPurchaser {
 	padding-top:25px;
@@ -75,7 +75,7 @@ td{
 	padding: 10px; 
 	padding-left: 20px;
 	border-radius: 10px;
-	opacity: 0.8;
+	opacity: 0.9;
 }
 #purchaseTable {
 	overflow-x:auto;
